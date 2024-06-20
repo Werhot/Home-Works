@@ -15,51 +15,51 @@
 				color:	blanchedalmond;
 			}
 			main {
+				text-align: center;
 			}
 			#TextDiv { /* Секция с текстом */
-				display: inline;
+				display: inline-flex;
 				width: 95%;
-				text-align: left;
-				margin-top: 40px;
-			}
-			#TextDiv t { /* Логотип Ютуба */
-				color: #FFFFFF;
-				background-color: red;
-				border: 2px red solid;
-				border-style: groove;
-				border-radius: 10px;
-				padding-left: 15px;
-				padding-right: 15px;
-				padding-top: 5px;
-				padding-bottom: 5px;
-				float: inline-end;
-				width: fit-content;
+				margin-top: 20px;
 			}
 			#ParDiva {
 				text-align: left;
-				display: inline-block;
-				width: 40%;
+				display: inline-flex;
+				width: 50%;
+			}
+			#ParDiva p:first-child::after { /* Логотип ютуба */
+				content: "▷"; 
+				color: white;
+				border: 1px red solid;
+				border-radius: 10px;
+				background-color: red;
+				padding-left: 10px;
+				padding-right: 10px;
+				padding-bottom: 2px;
+				padding-top: 3px;
+				float: right;
 			}
 			#ParDivb {
 				text-align: left;
-				display: inline-block;
-				width: 40%;
+				display: inline-flex;
+				width: 50%;
 			}
-			#section3 {
+			#section3 { /* Секция с курсами и их описанием */
 				text-align: center;
 				margin-top: 100px;
 				margin-bottom: 80px;
 				clear: both;
 			}
-			.Secdiv {	/* Секция с курсами и их описанием */
+			.Secdiv {
 				display: inline-block;
 				text-align: center;
 				width: 100%;
 			}
 			.Slotdiv {
-				display: inline-block;
+				display: inline-table;
 				width: 250px;
 				text-align: left;
+				width: 19%;
 			}
 			.Slotdiv text {
 				font-weight: bolder;
@@ -116,13 +116,15 @@
 				border-right: hidden;
 				border-bottom: hidden;
 			}
+			#FooterDiv1 {
+				display: inline;
+			}
 			#section1 {
 				display: inline-block;
 				margin-top: 10px;
 				text-align: left;
-				width: 32%;
-				margin-left: auto;
-				margin-right: auto;
+				width: 30%;
+				margin-left: 3%;
 			}
 			#section1 p {
 				font-size: 12px;
@@ -138,7 +140,7 @@
 			#div1 {
 				display: inline-block;
 				width: 45%;
-				margin-left: 5%;
+				margin-left: 3%;
 			}
 			#div2 {
 				display: inline-block;
@@ -195,9 +197,10 @@
 			<div id = "TextDiv">
 				<div id = "ParDiva">				
 					<section id = "section2a">
-						<text id = "p2">About Us</text><t>▷</t>
+						<text id = "p2">About Us</text>
+						<section id = "Logosection">
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet dolores labore dicta sunt repellendus beatae cupiditate?Laboriosam exercitationem eveniet non reiciendis nobis quisquam harum libero, asperiores ab quod, veritatis unde.
-						</p>
+						</p></section> 
 						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.Voluptas doloribus eaque pariatur, quidem incidunt blanditiis labore fugiat. Asperiores,iusto exercitationem debitis eligendi sunt suscipit dolore laboriosam, delectus molestias necessitatibus hic?
 						</p>
 					</section>
@@ -296,29 +299,31 @@
 		</main>
 
 		<footer>
-			<section id = "section1">
-				<text id = "p1">Our Courses</text>
-				<p>HTML5/CSS3</p>
-				<p>JavaScript/jQuery</p>
-				<p>PHP/MySql</p>
-				<p>CMS/SEO</p>
-			</section>
+			<div id = "FooterDiv1">
+				<section id = "section1">
+					<text id = "p1">Our Courses</text>
+					<p>HTML5/CSS3</p>
+					<p>JavaScript/jQuery</p>
+					<p>PHP/MySql</p>
+					<p>CMS/SEO</p>
+				</section>
 
-			<section id = "section1">
-				<text id = "p1">Our Services</text>
-				<p>Group training</p>
-				<p>Individual training</p>
-				<p>Online training</p>
-				<p>The latest techniques</p>
-			</section>
+				<section id = "section1">
+					<text id = "p1">Our Services</text>
+					<p>Group training</p>
+					<p>Individual training</p>
+					<p>Online training</p>
+					<p>The latest techniques</p>
+				</section>
 
-			<section id = "section1">
-				<text id = "p1">Useful Links</text>
-				<p>Lorem ipsum dolor sit.</p>
-				<p>Fugit minus viate tenetur</p>
-				<p>Sunt tempora ipsam facere</p>
-				<p>Rerum sunt suscipit officia</p>
-		</section>
+				<section id = "section1">
+					<text id = "p1">Useful Links</text>
+					<p>Lorem ipsum dolor sit.</p>
+					<p>Fugit minus viate tenetur</p>
+					<p>Sunt tempora ipsam facere</p>
+					<p>Rerum sunt suscipit officia</p>
+				</section>
+			</div>
 
 		<div class = "main_div">
 			<div id = "div1">		
