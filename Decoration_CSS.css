@@ -1,0 +1,244 @@
+#main_div {
+    background-color: lightgrey;
+}
+
+.input_sections {
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+}
+
+.input_sections input {
+    margin-top: 15px;
+}
+
+.input_sections textarea {
+    margin-top: 15px;
+}
+
+.button_section {
+    display: inline-block;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+}
+
+.header_label {
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.text_input {
+    border-color: grey;
+    color: grey;
+    box-shadow: none;
+    padding: 10px;
+}
+
+.text_input:user-valid {
+    background-image: url(valid.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right;
+    border-color: green;
+    color: green; 
+}
+
+.text_input:user-invalid {
+    background-image: url(invalid.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: right;
+    border-color: red;
+    color: red;
+}
+
+.Subscribe_checkbox {
+    display: none;
+}
+
+.Subscribe_button {
+    display: inline-block;
+    border: 1px solid red;
+    border-radius: 6px;
+    width: 40px;
+    height: 18px;
+    position: relative; 
+}
+
+.Subscribe_button::before {
+    content: "";
+    border-radius: 4px;
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    transform: translate( -50% -50%);
+    display: block;
+    width: 20px;
+    height: 14px;
+    background-color: red;
+    transition: .2s;
+}
+
+.Subscribe_checkbox:checked + .Subscribe_button::before {
+    background-color: green;
+    top: 10%;
+    left: 5%;
+}
+
+.Subscribe_checkbox:checked + .Subscribe_button {
+    border-color: green;
+}
+
+.Radio_checkbox {
+    display: none;
+}
+
+.Radio_button {
+    display: inline-block;
+    border: 1px solid grey;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative; 
+
+}
+
+.Radio_button::before {
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    top: 12%;
+    left: 12%;
+    transform: translate( -50% -50%);
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: grey;
+    transition: .2s;
+    display: none;
+}
+
+.Radio_checkbox:checked + .Radio_button::before {
+    background-color: green;
+    display: inline-block;
+}
+
+.Radio_checkbox:checked + .Radio_button {
+    border-color: green;
+    display: inline-block;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    float: left;
+    margin-left: 20px
+}
+  
+.buttons {
+    width: 200px;
+    height: 50px;
+    background-color: grey;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+  
+.text {
+    width: 200px;
+    height: 50px;
+    position: absolute;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    transition: top 0.001s;
+}
+  
+.Disabled {
+    top: 0px;
+}
+
+.buttons:hover .Disabled {
+    top: -80px;
+}
+
+.buttons:active .Disabled {
+    top: -80px;
+}
+
+.Hover_green {
+    top: 80px;
+}
+
+.Active_green {
+    top: 80px;
+}
+
+.buttons:hover .Hover_green {
+    top: 0px;
+    background-color: darkgreen;
+}
+
+.buttons:active .Active_green {
+    top: 0px;
+    background-color: seagreen;
+}
+  
+.Hover_red {
+    top: 80px;
+}
+
+.Danger_red {
+    top: 80px;
+}
+
+.buttons:hover .Hover_red{
+    top: 0px;
+    background-color: darkred;
+}
+
+.buttons:active .Danger_red {
+    top: 0px;
+    background-color: salmon;
+}
+
+.round_buttons {
+    display: inline-flex;
+}
+
+.round_button1 {
+    background-color: green;
+    border: 1px green solid;
+    border-radius: 50%;
+    transform: scale(0.5);
+    width: 90px; 
+    height: 90px;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
+
+.round_button2 {
+    background-color: red;
+    border: 1px red solid;
+    border-radius: 50%;
+    transform: scale(0.5);
+    width: 90px; 
+    height: 90px;
+    color: white;
+    font-size: 68px;
+    text-align: center;
+    margin-left: -35px;
+}
