@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW2</title>
+    <script>
+
+        /*
+        let userAge = prompt( ` Укажите свой возраст` );
+        if (userAge >= 0 && userAge <= 2) {
+            alert ( ` Вам ${userAge}, вы ребёнок ` )
+        }
+        else if (userAge >= 12 && userAge < 18) {
+            alert ( ` Вам ${userAge}, вы подросток ` )
+        }
+        else if (userAge >= 18 && userAge < 60) {
+            alert ( ` Вам ${userAge}, вы взрослый ` )
+        }
+        else if (userAge >= 60) {
+            alert ( ` Вам ${userAge}, вы пенсионер ` )
+        }
+        */
+        
+        /*
+        let input = prompt( 'Введите число от 0 до 9 включительно');
+        switch ( input ) {
+            case '1':
+                alert ( '!' )
+                break;
+
+            case '2':
+                alert ( '@' )
+                break;
+
+            case '3':
+                alert ( '#' )
+                break;
+
+            case '4':
+                alert ( '$' )
+                break;
+
+            case '5':
+                alert ( '%' )
+                break;
+
+            case '6':
+                alert ( '^' )
+                break;
+
+            case '7':
+                alert ( '&' )
+                break;
+    
+            case '8':
+                alert ( '*' )
+                break;
+
+            case '9':
+                alert ( '(' )
+                break;
+
+            case '0':
+                alert ( ')' )
+                break;
+
+            default:
+                alert ( 'Нет такого символа' )
+                break
+        } */
+
+        /*
+        let input = prompt( 'Введите трёхзначное число ')
+        let arr = input.split("");
+        let count = 0;
+        if (arr[0] == arr[1]) {
+            count++;
+        }
+
+        if (arr[0] == arr[2]) {
+            count++;
+        }
+
+        if (arr[1] == arr[2]) {
+            count++;
+        }
+
+        if (count == 1) {
+        count++;
+        }
+
+        alert(`Обнаружено ${count} одинаковых цифр`);
+        */
+
+        /*
+        let userYear = parseInt(prompt( 'Введите год '));
+        if ( (userYear % 400 == 0 && userYear % 100 !== 0 ) || userYear % 4 == 0 ) {
+            alert ( ` Год ${userYear} високосный ` );
+        }
+
+        else {
+            alert ( ` Год ${userYear} не високосный ` );
+        }
+        */
+
+        /*
+        let palindrom = 0;
+        do {
+            palindrom = Math.abs(
+                +prompt( " Введите пятиразрядное число "));
+
+        } while (palindrom < 10000 || palindrom > 99999);
+        let array = [];
+        for (i = 0; i < 5; i++) {
+            array[i] = palindrom % 10;
+            palindrom = Math.trunc(palindrom / 10);
+        }
+
+        if (array[0] == array[4] && array[1] == array[3]) {
+            alert("Да, это число палиндром!");
+
+        } else {
+        alert("Нет, введенное число не палиндром!");
+        }
+        */
+
+        /*
+        const EUR = 1.07;
+        const UAN = 0.137499;
+        const AZN = 0.588235;
+        let userDollar = prompt( 'Введите сумму в долларах ')
+        let eur = confirm( "Перевести в eur?" )
+        let uan = confirm( "Перевести в uan?" )
+        let azn = confirm( "Перевести в azn?" )
+        if (eur == true) {
+            let money = userDollar * EUR;
+            alert( ` ${userDollar}$ в eur будет ${money} ` );
+        }
+        if (uan == true) {
+            let money = userDollar * UAN;
+            alert( ` ${userDollar}$ в uan будет ${money} ` );
+        }
+        if (azn == true) {
+            let money = userDollar * AZN;
+            alert( ` ${userDollar}$ в azn будет ${money} ` );
+        }
+        */
+
+        /*
+        let check_sale = Math.abs(+prompt("Введите сумму вашей покупки: "));
+        let discount = Number(0);
+        if (check_sale >= 200 && check_sale <= 300) {
+            discount = 3;
+            check_sale = check_sale - (check_sale * discount) / 100;
+        }
+
+        if (check_sale > 300 && check_sale <= 500) {
+            discount = 5;
+            check_sale = check_sale - (check_sale * discount) / 100;
+        }
+
+        if (check_sale > 500) {
+            discount = 5;
+            check_sale = check_sale - (check_sale * discount) / 100;
+        }
+
+        alert( `Вы купили товары на сумму ${check_sale / (1 - discount / 100)} рублей. Ваша скидка ${discount}% - ${((check_sale / (1 - discount / 100)) * discount) / 100} рублей. 
+        Всего к оплате ${check_sale} рублей.`);
+        */
+
+        /*
+        let circuit = +prompt("Введите длину окружности: ");
+        let perimeter = +prompt("Введите периметр квадрата: ");
+        if (circuit / 2 / Math.PI > perimeter / 4 / 2) {
+            alert("Окружность данной длины не впишется в данный квадрат!");
+        } 
+        else {
+            alert("Окружность данной длины впишется в данный квадрат!");
+        }
+        */
+
+        
+        alert( " Вопросы на знание нашей солнечной системы " );
+
+        let penalty_counter = Number(0);
+
+        alert( "Вопрос первый, какая планета самая большая." );
+
+        let question_a = confirm("Нептун");
+        let question_b = confirm("Юпитер");
+        let question_c = confirm("Уран");
+
+        if ((question_c == true) || (question_a == true)) {
+            penalty_counter += 2;
+        }
+
+        alert("Вопрос второй, сколько всего палнет в нашей солнечной системе");
+        question_a = confirm("8");
+        question_b = confirm("6");
+        question_c = confirm("9");
+
+        if ((question_b == true)  || (question_c == true)) {
+            penalty_counter += 2;
+        }
+
+        alert("Вопрос третий, какая планета находиться дальше всего от Солнца");
+        question_a = confirm("Уран");
+        question_b = confirm("Меркурий");
+        question_c = confirm("Нептун");
+
+        if ((question_b == true) || (question_a == true)) {
+            penalty_counter += 2;
+        }
+
+        if (penalty_counter > 0) {
+            alert(`Вам ещё стоит кое-что подучить! ${(penalty_counter /= 2)} неправильных ответа и ${penalty_counter} штрафных балла!`);
+        }
+
+        else {
+            alert("Вы отлично знаете нашу солнечную систему");
+        }
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
