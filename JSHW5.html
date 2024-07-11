@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW5</title>
+    <script>
+        /*
+        function GetTime() {
+            function Time(a, b = 0, c = 0) {
+                if (a < 10) {
+                    a = "0" + a;
+                }
+
+                if (b < 10) {
+                    b = "0" + b;
+                }
+
+                if (c < 10) {
+                    c = "0" + c;
+            }
+            return `${a}:${b}:${c}`;
+        }
+        let x = 0;
+        let y = 0;
+        let z = 0;
+
+        do {
+            x = Math.abs(Math.trunc(prompt("Введите часы от 0 до 23: ")));
+            y = Math.abs(Math.trunc(prompt("Введите минуты от 0 до 59: ")));
+            z = Math.abs(Math.trunc(prompt("Введите секунды от 0 до 59: ")));
+        } while (x > 23 || y > 59 || z > 59);
+
+        alert("Текущее время: " + Time(x, y, z));
+        }
+    GetTime();
+    */
+
+        /*
+        function ConvertTime() {
+            function TimeToSeconds(a, b = 0, c = 0) {
+                let timeToSeconds = a * 3600 + b * 60 + c;
+                return timeToSeconds;
+            }
+
+        let x = 0;
+        let y = 0;
+        let z = 0;
+
+        do {
+            x = Math.abs(Math.trunc(+prompt("Введите часы от 0 до 23: ")));
+            y = Math.abs(Math.trunc(+prompt("Введите минуты от 0 до 59: ")));
+            z = Math.abs(Math.trunc(+prompt("Введите секунды от 0 до 59: ")));
+        } while (x > 23 || y > 59 || z > 59);
+
+        alert("От начала суток это составляет " + TimeToSeconds(x, y, z) + " секунд.");
+        }
+
+        ConvertTime();
+        */
+
+        /*
+        function ConvertTime() {
+            function SecondsToTime(a) {
+                let hours = Math.trunc(a / 3600);
+                let minutes = Math.trunc((a - hours * 3600) / 60);
+                let seconds = Math.trunc(a - hours * 3600 - minutes * 60);
+
+                if (hours < 10) {
+                    hours = "0" + hours;
+                }
+
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+
+            let current_time = `${hours}:${minutes}:${seconds}`;
+            return current_time;
+            }
+
+            let input_seconds = 0;
+            do {
+                input_seconds = Math.abs(Math.trunc(prompt("Введите секунды для перевода их в текущее время: ")));
+            } while (input_seconds != +input_seconds);
+
+        alert(SecondsToTime(input_seconds));
+        }
+        ConvertTime();
+        */
+
+        function Dates() {
+            function TimeToSeconds(a, b = 0, c = 0) {
+                let timeToSeconds = a * 3600 + b * 60 + c;
+                return timeToSeconds;
+            }
+
+            function SecondsToTime(a) {
+                let hours = Math.trunc(a / 3600);
+                let minutes = Math.trunc((a - hours * 3600) / 60);
+                let seconds = Math.trunc(a - hours * 3600 - minutes * 60);
+
+                if (hours < 10) {
+                    hours = "0" + hours;
+                }
+
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+
+                if (seconds < 10) {
+                    seconds = "0" + seconds;
+                }
+
+                let current_time = `${hours}:${minutes}:${seconds}`;
+                return current_time;
+            }
+
+            function DifferenceTime(a1, b1, c1, a2, b2, c2) {
+                return SecondsToTime(24 * 60 * 60 - TimeToSeconds(a1, b1, c1) + TimeToSeconds(a2, b2, c2));
+            }
+
+        let x1 = 0;
+        let y1 = 0;
+        let z1 = 0;
+        let x2 = 0;
+        let y2 = 0;
+        let z2 = 0;
+
+        do {
+            x1 = Math.abs(Math.trunc(prompt("Введите часы более ранней даты от 0 до 23: ")));
+            y1 = Math.abs(Math.trunc(prompt("Введите минуты более ранней даты от 0 до 59: ")));
+            z1 = Math.abs(Math.trunc(prompt("Введите секунды более ранней даты от 0 до 59: ")));
+            x2 = Math.abs(Math.trunc(prompt("Введите часы более поздней даты от 0 до 23: ")));
+            y2 = Math.abs(Math.trunc(prompt("Введите минуты более поздней даты от 0 до 59: ")));
+            z2 = Math.abs(Math.trunc(prompt("Введите секунды более поздней даты от 0 до 59: ")));
+        } while (x1 > 23 || y1 > 59 || z1 > 59 || x2 > 23 || y2 > 59 || z2 > 59);
+
+        alert("Разница между сегодняшним и завтрашним событием составляет: " +DifferenceTime(x1, y1, z1, x2, y2, z2));
+        }
+        Dates();
+
+    </script>
+</head>
+<body>
+</body>
+</html>
