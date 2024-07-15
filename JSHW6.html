@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW6</title>
+    <script>
+
+        function GetRandomArray () {
+            let array = [];
+            for (let i = 0; i < 10; i++) {
+                array[i] = Math.floor( Math.random() * 10 );
+            }
+
+            return array;
+        }
+
+        function GetRandomArrayShort () {
+            let array = [];
+            for (let i = 0; i < 5; i++) {
+                array[i] = Math.floor( Math.random() * 10 );
+            }
+
+            return array;
+        }
+
+        let randomNumbers = GetRandomArray();
+
+        let randomShortNumbers = GetRandomArrayShort();
+
+  
+        // Задание 1
+
+        /*
+        ShowRandomArray(randomNumbers);
+
+        function ShowRandomArray(randomNumbers) { // 1 
+            for ( i = 0; i < randomNumbers.length; i++ ) {
+                document.write(randomNumbers[i]);
+            }
+        }
+        */
+
+        /*
+        showEvenElements(randomNumbers);
+
+        function showEvenElements(randomNumbers) { // 2
+            for( i = 0; i < randomNumbers.length; i+=2 )
+            randomNumbers[i] = '__';
+            document.write(randomNumbers);
+        }
+        */
+
+        /*
+        ElementsSumm(randomNumbers);
+
+        function ElementsSumm(randomNumbers) { // 3 
+            let randomSumm = 0;
+            randomNumbers.forEach(i => {
+                randomSumm += i;
+            });
+
+            document.write(randomSumm);
+ 
+        }
+        */
+
+        /*
+        ElementsMax(randomNumbers);
+        
+        function ElementsMax(randomNumbers) { // 4 
+            let randomMax = Math.max(parseInt(randomNumbers));
+            document.write(randomMax);
+        }
+        */
+
+        /*
+        ElementsAppend(randomNumbers);
+
+        function ElementsAppend(randomNumbers) { // 5 
+            randomNumbers.splice(2, 0, 7); // 7-ку добавили
+            document.write(randomNumbers);
+        }
+        */
+
+        /*
+        ElementsDelete(randomNumbers);
+
+        function ElementsDelete(randomNumbers) { // 6 
+            randomNumbers.splice(4, 1); // 4-ый элемент удалили 
+            document.write(randomNumbers);
+        }
+        */
+
+        // Задание 2
+
+        /*
+        ArraysConnection(randomNumbers);
+        ArraysConnection(randomShortNumbers);
+        
+        function ArraysConnection(randomNumbers, randomShortNumbers) { // 1
+            let randomArrays = randomNumbers.concat(randomShortNumbers);
+            let allRandomArrays = [...new Set(randomArrays)];
+            document.write(allRandomArrays);
+        }
+        */
+
+        /*
+        ArraysIntersections(randomNumbers, randomShortNumbers);
+
+        function ArraysIntersections(randomNumbers, randomShortNumbers) {
+            const temp = [...randomNumbers, ...randomShortNumbers];
+            const result = [];
+
+            for (let i = 0; i < temp.length; i++) {
+                if (!result.includes(temp[i])) {
+                    result.push(temp[i])
+                }
+            }
+
+            document.write(result);
+        }
+        */
+        
+        /*
+        ArraysDifference(randomNumbers, randomShortNumbers);
+
+        function ArraysDifference (randomNumbers, randomShortNumbers) { 
+            const difference = [];
+
+            for (let i = 0; i < randomNumbers.length; i++) {
+                for (let j = 0; j < randomShortNumbers.length; j++) {
+                    if (randomNumbers[i] === randomShortNumbers[j]) {
+                        difference.push(randomNumbers[i])
+                    }
+                }
+            }
+            document.write(difference);
+        }
+        */
+
+        // Задание 3
+
+        
+        let fruits = ["Apple", "Pear", "Lemon", "Orange", "Banana", "Pineapple"];
+        /*
+        let sortedFruits = fruits.sort();
+        FruitList(sortedFruits);
+
+        function FruitList(sortedFruits) {
+            document.write('<ul>');
+
+            for ( let i = 0; i < sortedFruits.lenght; i++) {
+                document.write(`<li> ${sortedFruits[i]} </li>`);
+            }
+
+            document.write('</ul>');
+        }
+        */
+
+        FindFruit(fruits);
+        
+        function FindFruit (fruits) {
+            let fruit = prompt('Введите фрукт')
+            alert( fruits.indexOf(`${fruit}`));
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
