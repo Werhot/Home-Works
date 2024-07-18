@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW7</title>
+    <script>
+        /*
+
+        function PrintMachineFunction (fontsize, color, fontfamily) {
+             this.fontsize = fontsize;
+             this.color = color;
+             this.fontfamily = fontfamily;
+
+             this.print = function(text) {
+                let output = `<p style = " font-size: ${fontsize}px; color: ${color}; font-family: ${fontfamily}"> ${text} </p>`
+                document.write(output);
+                return output
+            }
+        };
+        
+        let printMachine1 = new PrintMachineFunction( 30, 'green', 'serif' );
+        
+        let printMachine2 = new PrintMachineFunction( 10, 'blue', 'arial' );
+
+        printMachine1.print('nmnmnmnmmn');
+
+        printMachine2.print('rthrthrthrth');
+        
+
+        document.write( `${printMachine1.fontsize}, ${printMachine1.color}, ${printMachine1.fontfamily} <br/>` );
+        document.write( `${printMachine2.fontsize}, ${printMachine2.color}, ${printMachine2.fontfamily}` ); 
+
+        */
+
+        
+
+        function News (header, text, tags, date, days) {
+
+            this.header = header;
+            this.text = text;
+            this.tags = tags;
+            this.date = date;
+
+            this.days = days;
+
+            if (days < 1 && days > 0) {
+                date = 'Сегодня';
+                return date;
+            }
+            
+            else if (days > 1 && days < 7) {
+                date = `${days} дней назад`;
+                return date;
+            }
+
+
+            this.print = function(headerfontsize) {
+
+                let output = 
+                `<h1 style = " font-size: ${headerfontsize}px"> ${header} </h1>
+                <p> ${date} </p>
+                <p> ${text} </p>
+                <p> ${tags} </p>`;
+                document.write(output);
+            }
+
+
+        };
+    
+    const date = new Date();
+    const formatter = new Intl.DateTimeFormat('RU', { dateStyle: 'short' });
+    let firstNewsDate =  formatter.format(date); 
+    let days = date.getDate();
+
+    let firstNewsTags = ['#1tag', '#2tag', '#3tag'];
+    let firstNews =  new News('What is Lorem Ipsum?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio error veniam ipsum ex, iste quasi, modi vel nam, officiis minus ad magnam corrupti eos fuga possimus. Reprehenderit quasi ab maiores', 
+    firstNewsTags, firstNewsDate, days);
+
+    firstNews.print(40);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
