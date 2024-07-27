@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E3</title>
+    <style>
+        #textdiv {
+            width: 60%;
+            background-color: wheat;
+        }
+
+        #text {
+            padding: 10px;
+        }
+
+        #HideShowbutton {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "textdiv">
+        <input type = "button" id = "HideShowbutton" value = "Hide/Show text"/>
+        <p id = "text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Iste asperiores deserunt maxime doloremque qui incidunt sequi dignissimos delectus ducimus excepturi praesentium, 
+            repellat quisquam magnam, rem quod in rerum libero nam.
+        </p>
+    </div>
+
+    <script>
+        let hideshowbutton = document.getElementById("HideShowbutton");
+        let text = document.getElementById("text");
+
+        hideshowbutton.addEventListener("click", hideshow);
+
+        function  hideshow(event) {
+            text.style.visibility = text.style.visibility === 'hidden' ? 'visible' : 'hidden';
+        }
+    </script>
+ </body>
+</html>

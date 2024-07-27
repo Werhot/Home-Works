@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E5</title>
+    <style>
+        #news {
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <div id = "news">
+        <p id = "p1">
+            <h1 id = "h1">What is Lorem Ipsum?</h1> 
+            <text id = "text1">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Dolor, facere. Inventore, est fuga ratione cupiditate beatae hic neque soluta placeat? Qui facere officia laudantium possimus! 
+                Eaque illo assumenda nulla praesentium.
+            </text>
+            <input type = "button" value = "X [remove]" id = "deletebutton1" />
+        </p>
+
+        <hr/>
+
+        <p id = "p2">
+            <h1 id = "h2">Why do we use if?</h1>
+            <text id = "text2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Nostrum, sed atque modi ab quibusdam tenetur inventore expedita? 
+                At molestias harum ut quidem, dolore dicta, est quia, voluptatibus quasi illum animi!
+            </text>
+            <input type = "button" value = "X [remove]" id = "deletebutton2" />
+        </p>
+
+        <hr/>
+
+        <p id = "p3">
+            <h1 id = "h3">Where does it comes from?</h1>
+            <text id = "text3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Ut quisquam, nobis rem voluptatem tempora veritatis ad velit esse doloribus ratione!
+                Facere suscipit enim commodi doloremque nisi error minus laborum possimus?
+            </text>
+            <input type = "button" value = "X [remove]" id = "deletebutton3" />
+        </p>
+    </div>
+    <script>
+        let deletebutton1 = document.getElementById("deletebutton1");
+        deletebutton1.addEventListener("click", dlNew1);
+
+        let h1 = document.getElementById("h1");
+        let text1 = document.getElementById("text1");
+
+        function dlNew1 (event) {
+            h1.innerHTML = "";
+            text1.innerHTML = "";
+        }
+
+        let deletebutton2 = document.getElementById("deletebutton2");
+        deletebutton2.addEventListener("click", dlNew2);
+
+        let h2 = document.getElementById("h2");
+        let text2 = document.getElementById("text2");
+
+        function dlNew2 (event) {
+            h2.innerHTML = "";
+            text2.innerHTML = "";
+        }
+
+        let deletebutton3 = document.getElementById("deletebutton3");
+        deletebutton3.addEventListener("click", dlNew3);
+
+        let h3 = document.getElementById("h3");
+        let text3 = document.getElementById("text3");
+
+        function dlNew3 (event) {
+            h3.innerHTML = "";
+            text3.innerHTML = "";
+        }
+    </script>
+ </body>
+</html>

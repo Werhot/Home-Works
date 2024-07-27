@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E2</title>
+    <style>
+        #cordinatesDiv {
+            border: 10px;
+            border-radius: 10px;
+            border-color: navy;
+            color: black;
+            background-color: wheat;
+            width: 80%;
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div id = "cordinatesDiv"> 
+        <p id = "cordinates"></p>
+        <p id = "mouseInfo"></p>
+    </div>
+    <input type = "button" id = "cordinatesButton" value = "Click"/>
+
+    <script>
+        let cordinatesDiv = document.getElementById("cordinatesDiv"); 
+        cordinatesDiv.addEventListener("mousemove", moveInfo);
+        cordinatesDiv.addEventListener("mousedown", clickInfo);
+        cordinatesDiv.addEventListener("contextmenu", contextHandler);
+
+        let cordinates = document.getElementById("cordinates");
+        cordinates.addEventListener("mousemove", moveInfo);
+
+        let mouseInfo = document.getElementById("mouseInfo");
+        mouseInfo.addEventListener("mousemove", moveInfo);
+
+        function moveInfo(event) {
+            let cordinates = document.getElementById("cordinates");
+            cordinates.innerHTML = `X ${event.clientX} Y ${event.clientY}`;
+        }
+
+        function clickInfo(event) {
+            let mouseInfo = document.getElementById("mouseInfo");
+            mouseInfo.innerText = event.button;
+        }
+
+        let cordinatesButton = document.getElementById("cordinatesButton");
+        cordinatesButton.addEventListener("mouseup", clickHandler, false);
+        cordinatesButton.addEventListener("contextmenu", contextHandler, false);
+
+        function clickHandler(event) {
+            console.log(event.button);
+        }
+
+        function contextHandler(event) { 
+            event.preventDefault();
+        }
+    </script>
+ </body>
+</html>

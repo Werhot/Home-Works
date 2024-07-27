@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E1</title>
+    <style>
+        #RandomNumberDiv { 
+            text-align: center;
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <div id = "RandomNumberDiv">
+        <p>Random number generator:</p>
+        <p id = "randomNumberPlace"></p>
+        <input type = "button" value = "Generate random number" 
+        onclick = "getRandomNumber()"/> 
+    </div>
+
+    <script>
+        function getRandomNumber() { 
+            let p = document.getElementById("randomNumberPlace");
+            p.innerHTML = Math.floor(100 * Math.random());
+        } 
+    </script>
+ </body>
+</html>

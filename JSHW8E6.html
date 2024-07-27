@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E6</title>
+    <style>
+        #outerdiv {
+            background-color: wheat;
+            width: 30%;
+            height: 200px;
+        }
+
+        #progressbar {
+            display: inline-block;
+            background-color: lightblue;
+            width: 60%;
+            height: 40px;
+            border: 5px solid olivedrab;
+            margin-left: 20%;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        #progressline {
+            display: inline-block;
+            background-color: black;
+            width: 0%;
+            height: 40px;
+            left: 6.5%;
+            top: 3.4%;
+            position: fixed;
+        }
+
+        #addbutton{
+            width: 61.5%;
+            height: 30px;
+            margin-left: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div id = "outerdiv">
+        <p id = "progressbar">
+            <div id = "progressline"></div>
+        </p>
+        <input type ="button" value = "Add 5 percent" id = "addbutton" />
+    </div>
+
+    <script>
+        let addbutton = document.getElementById("addbutton");
+        addbutton.addEventListener("click", add5);
+
+        let progressline = document.getElementById("progressline");
+        let progresscounter = 0;
+
+        function add5(event) {
+            if (progresscounter <= 17) {
+                progressline.style.width = `${progresscounter += 1}%`;
+            }
+            
+        }
+    </script>
+ </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E4</title>
+    <style>
+        #navbar {
+            margin-left: 16%;
+            padding-left: 2px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height:100px;
+            width: 80%;
+            border: 1px solid burlywood;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 15%;
+            height: 50%;
+            background-color: #f1f1f1;
+            overflow: auto;
+            float: left;
+        }
+
+        li {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            padding-bottom: 15px;
+            text-decoration: none;
+        }
+
+        li:hover:not(.active) {
+            background-color: burlywood;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li id = "li1">HTML</li>
+        <li id = "li2">CSS</li>
+        <li id = "li3">JavaScript</li>
+    </ul>
+
+    <div id = "navbar">
+
+        <p>
+            
+        </p>
+        
+    </div>
+
+    <script>
+        let navbar = document.getElementById("navbar");
+
+        let li1 = document.getElementById("li1");
+        li1.addEventListener("click", htmlEvent);
+
+        function htmlEvent (event) {
+            navbar.innerText = 'HTML Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deserunt architecto numquam aliquid vero hic ipsam atque, consectetur provident quam, repellendus pariatur vel eos voluptates recusandae consequuntur fugiat reiciendis dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consectetur officiis aspernatur numquam! Adipisci, facere! Non, voluptate magni. Impedit iste quod tempore eos blanditiis quisquam rem! Minima tempora quidem inventore.';
+        }
+
+        let li2 = document.getElementById("li2");
+        li2.addEventListener("click", cssEvent);
+
+        function cssEvent (event) {
+            navbar.innerText = 'CSS Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deserunt architecto numquam aliquid vero hic ipsam atque, consectetur provident quam, repellendus pariatur vel eos voluptates recusandae consequuntur fugiat reiciendis dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consectetur officiis aspernatur numquam! Adipisci, facere! Non, voluptate magni. Impedit iste quod tempore eos blanditiis quisquam rem! Minima tempora quidem inventore.';
+        }
+
+        let li3 = document.getElementById("li3");
+        li3.addEventListener("click", javaScriptEvent);
+
+        function javaScriptEvent (event) {
+            navbar.innerText = 'JavaScript Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis deserunt architecto numquam aliquid vero hic ipsam atque, consectetur provident quam, repellendus pariatur vel eos voluptates recusandae consequuntur fugiat reiciendis dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis consectetur officiis aspernatur numquam! Adipisci, facere! Non, voluptate magni. Impedit iste quod tempore eos blanditiis quisquam rem! Minima tempora quidem inventore.';
+        }
+    </script>
+ </body>
+</html>
