@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW8E4</title>
+    <style>
+        #navbar {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height:100px;
+            width: 80%;
+            border: none;
+            clear: both;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #f1f1f1;
+            overflow: auto;
+        }
+
+        li {
+            color: #000;
+            padding: 10px 20px;
+            padding-bottom: 15px;
+            text-decoration: none;
+            display: inline;
+        }
+
+        li:hover:not(.active) {
+            color: burlywood;
+        }
+
+        #ul4 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-top: -10px;
+            width: 80px;
+            height: 200px;
+            background-color: #f1f1f1;
+            border-collapse: collapse;
+        }
+
+        #li4 {
+            background-color: #f1f1f1;
+            width: 40px;
+            padding-bottom: -15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        #ul5 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-top: -10px;
+            margin-left: 90px;
+            width: 100px;
+            height: 210px;
+            background-color: #f1f1f1;
+            border-collapse: collapse;
+        }
+
+        #li5 {
+            background-color: #f1f1f1;
+            width: 40px;
+            padding-bottom: -15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        #ul6 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            margin-top: -10px;
+            margin-left: 200px;
+            width: 120px;
+            height: 220px;
+            background-color: #f1f1f1;
+            border-collapse: collapse;
+        }
+
+        #li6 {
+            background-color: #f1f1f1;
+            width: 40px;
+            padding-bottom: -15px;
+            text-decoration: none;
+            display: block;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li id = "li1">Home</li>
+        <li id = "li2">Categories</li>
+        <li id = "li3">Contacts</li>
+    </ul>
+
+    <div id = "navbar">
+
+        <p>
+            
+        </p>
+        
+    </div>
+
+    <script>
+        let navbar = document.getElementById("navbar");
+
+        let li1 = document.getElementById("li1");
+        li1.addEventListener("click", htmlEvent);
+
+        function htmlEvent (event) {
+            navbar.innerHTML = '<ul id ="ul4"><li id = "li4">Header</li><br/> <li id = "li4">Body</li><br/><li id = "li4">Tags</li><br/></ul>';
+        }
+
+        let li2 = document.getElementById("li2");
+        li2.addEventListener("click", cssEvent);
+
+        function cssEvent (event) {
+            navbar.innerHTML = '<ul id ="ul5"><li id = "li5">Sales</li><br/><li id = "li5">Hits</li><br/><li id = "li5">Lower prices</li><br/></ul>';
+        }
+
+        let li3 = document.getElementById("li3");
+        li3.addEventListener("click", javaScriptEvent);
+
+        function javaScriptEvent (event) {
+            navbar.innerHTML = '<ul id ="ul6"><li id = "li6">Community</li><br/><li id = "li6">Mebia</li><br/><li id = "li6">Tech support</li><br/></ul>';
+        }
+    </script>
+ </body>
+</html>
