@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modul2Week5E4</title>
+        <style>
+            .styled-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            .styled-table th, .styled-table td {
+                padding: 8px;
+                border-bottom: 1px solid #ddd;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            class EmpTable {
+                constructor(table) {
+                    this.table = table;
+                }
+
+                getHtml() {
+                    return this.table;
+                }
+            }
+
+            class StyledEmpTable extends EmpTable {
+                constructor(table) {
+                    super(table);
+                }
+
+                    getStyles() {
+                    return '<style>.styled-table { width: 100%; border-collapse: collapse; } .styled-table th, .styled-table td { padding: 8px; border-bottom: 1px solid #ddd; text-align: left; }</style>';
+                    }
+
+                    getHtml() {
+                    return this.getStyles() + super.getHtml();
+                    }
+            }
+
+            const table = '<table class="styled-table"><thead><tr><th>Name</th><th>Position</th></tr></thead><tbody><tr><td>John Doe</td><td>Developer</td></tr><tr><td>Jane Smith</td><td>Designer</td></tr></tbody></table>';
+
+            const styledEmpTable = new StyledEmpTable(table);
+            document.body.innerHTML = styledEmpTable.getHtml();
+        </script>
+    </body>
+</html>
