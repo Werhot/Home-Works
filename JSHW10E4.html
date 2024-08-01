@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW10E4</title>
+    <style>
+        #formDiv {
+            background-color: wheat;
+            width: 800px;
+            height: 800px;
+            color: black;
+            text-align: center;
+            display: inline-block;
+            overflow: hidden;
+        }
+        #container {
+            background-color: wheat;
+            width: 800px;
+            height: 100px;
+            color: black;
+        }
+        #red_label, #green_label, #blue_label {
+            border: 1px solid black;
+            padding-left: 7px;
+            padding-right: 7px;
+            padding-bottom: 2px;
+        }
+        #red_input, #green_input, #blue_input {
+            width: 60px;
+        }
+        #color_button {
+            width: 38.5%;
+        }
+        .colorDiv {
+            text-align: left;
+            display: inline-flex;
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+        }
+        .colorMassage {
+            text-align: left;
+            display: inline-flex;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="formDiv">
+        <form method = "post"> 
+            <label for="red_input" id="red_label">R</label>
+            <input type="text" name="red_input" id="red_input">
+
+            <label for="green_input" id="green_label">G</label>
+            <input type="text" name="green_input" id="green_input">
+        
+            <label for="blue_input" id="blue_label">B</label>
+            <input type="text" name="blue_input" id="blue_input"><br/>
+            
+            <input type="submit" value="Add color"  name="color_button" id="color_button">
+            <div id="container"></div>
+        </form>
+        
+    </div>
+
+    <script>
+        let form = document.forms[0];
+        form.addEventListener("submit", saveMassage);
+
+        function saveMassage(event) {
+            event.preventDefault();
+
+            let redVolue = document.getElementById("red_input");
+            let greenVolue = document.getElementById("green_input");
+            let blueVolue = document.getElementById("blue_input");
+
+            let newColor = `rgb(${redVolue.value},${greenVolue.value},${blueVolue.value})`;
+            let newColorText = newColor.toString();
+
+            let colorDiv = document.createElement("div");
+            colorDiv.style.backgroundColor = newColor;
+            colorDiv.innerText = `
+
+
+            
+            
+            
+            ${newColorText}`;
+            colorDiv.className = "colorDiv";
+
+            let colorMassage = document.createElement("div");
+            colorMassage.className = "colorMassage";
+            colorMassage.appendChild(colorDiv);
+            
+            document.getElementById("container").appendChild(colorMassage);
+
+            let formCounter = 10;
+            formCounter += 10;
+            colorMassage.style.padding += `${formCounter}px`;
+
+            form.reset();
+        }
+    </script>
+</body>
+</html>

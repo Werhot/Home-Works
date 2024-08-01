@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW10E5</title>
+    <style>
+        #formDiv {
+            background-color: wheat;
+            width: 800px;
+            height: 100%;
+            color: black;
+        }
+        #massageContainer {
+            background-color: wheat;
+            width: 800px;
+            height: 100px;
+            color: black;
+        }
+        #mainDivContainer{
+            background-color: wheat;
+            width: 800px;
+        }
+        #massageHeader {
+            font-weight: bolder;
+            margin-left: 5%;
+        }
+        #correctAnswerLabel {
+            margin-left: 5%;
+        }
+        #wrongAnswerLabel {
+            margin-left: 5%;
+        }
+        #questionLabel {
+            margin-left: 10%;
+        }
+        #correctAnswerInput{
+            width: 60%;
+        }
+        #wrongAnswerInput {
+            width: 60%;
+        }
+        #questionInput {
+            width: 60%;
+        }
+        #sendButton {
+            margin-left: 10%;
+            margin-top: 20px;
+            width: 80%;
+        }
+        .massage{
+            background-color: wheat;
+            width: 800px;
+            height: 50px;
+            color: black;
+        }
+        .questionDiv {
+            margin-left: 5%;
+        }
+        .correctAnswerDiv {
+            margin-left: 5%;
+        }
+        .wrongAnswerDiv {
+            margin-left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="formDiv">
+        <form method = "post"> 
+            <p id="massageHeader">Add new question:</p>
+            <label for="questionInput" id="questionLabel">Question:</label>
+            <input type="text" name="questionInput" id="questionInput"><br/>
+
+            <label for="correctAnswerInput" id="correctAnswerLabel">Correct answer:</label>
+            <input type="text" name="correctAnswerInput" id="correctAnswerInput"><br/>
+
+            <label for="wrongAnswerInput" id="wrongAnswerLabel">Wrong answer:</label>
+            <input type="text" name="wrongAnswerInput" id="wrongAnswerInput"><br/>
+
+            <input type="submit" value="Add"  name="sendButton" id="sendButton">
+        </form>
+        <p id="massageHeader">All questions</p>
+        <hr/>
+        <div id="massageContainer"></div> 
+    </div>
+
+    <script>
+        let form = document.forms[0];
+        form.addEventListener("submit", saveMassage);
+
+        function saveMassage(event) {
+            event.preventDefault();
+
+            let questionVolue = document.getElementById("questionInput").value;
+            let correctAnswerVolue = document.getElementById("correctAnswerInput").value;
+            let wrongAnswerVolue = document.getElementById("correctAnswerInput").value;
+
+            let question = document.createElement("div");
+            question.innerHTML = questionVolue;
+            question.className =  "questionDiv";
+
+            let correctAnswer = document.createElement("div");
+            correctAnswer.innerHTML =  correctAnswerVolue;
+            correctAnswer.className =  "correctAnswerDiv";
+
+            let wrongAnswer = document.createElement("div");
+            wrongAnswer.innerHTML = wrongAnswerVolue;
+            wrongAnswer.className = "wrongAnswerDiv";
+
+            let massage = document.createElement("div");
+            massage.className = "massage";
+            massage.appendChild(question);
+            massage.appendChild(correctAnswer);
+            massage.appendChild(wrongAnswer);
+            
+            document.getElementById("massageContainer").appendChild(massage);
+
+            let formCounter = 10;
+            formCounter += 10;
+            massage.style.paddingTop += `${formCounter}px`;
+            massage.style.paddingBottom += `${formCounter}px`;
+
+            form.reset();
+        }
+    </script>
+</body>
+</html>

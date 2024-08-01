@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JSHW10E3</title>
+
+    <style>
+        #save_div {
+            background-color: lightseagreen;
+            width: 60%;
+            height: 250px;
+        }
+
+        #container {
+            background-color: rgb(32, 95, 178);
+            width: 60%;
+            height: 250px;
+            padding-top: 5%;
+        }
+
+        #container td {
+            border: 1px solid black;
+            background-color: white;
+        }
+
+        #container table {
+            margin-left: 10%;
+            border-collapse: collapse;
+            width: 80%;
+            height: 80%;
+        }
+
+        #firstname_label, #birthday_label, #country_label, #skills_Label{
+            margin-left: 10%;
+        }
+
+        #firstname_input, #birthday_input, #country_input {
+            margin-left: 10%;
+        }
+
+        #lastname_label {
+            margin-left: 34.5%;
+        }
+
+        #gender_label {
+            margin-left: 36%;
+        }
+
+        #male_label {
+            margin-left: 28%;
+        }
+
+        #city_label {
+            margin-left: 36.5%;
+        }
+
+        #lastname_input, #city_input{
+            margin-left: 15%;
+        }
+
+        #save_button{
+            width: 78%;
+            margin-top: 20px;
+            margin-left: 10%;
+        }
+    </style>
+
+</head>
+<body>
+     <form action = "" method = "post">
+        <div id = "save_div">
+            <div>
+                <label for = "firstname_input" id = "firstname_label">Firstname:</label>
+                <label for = "lastname_input" id = "lastname_label">Lastname:</label><br/>
+                <input type = "text" id = "firstname_input" name = "firstname_input"/>
+                <input type = "text" id = "lastname_input" name = "lastname_input"/>
+            </div>
+            <div>
+                <label for = "birthday_input" id = "birthday_label">Birthday:</label>
+                <label for = "gender_input" id = "gender_label">Gender:</label><br/>
+                <input type = "date" id = "birthday_input" name = "birthday_input"/>
+                
+                <label for = "gender_input" id = "male_label">Male</label>
+                <input type = "radio" id = "male_input" name = "gender_input"/>
+
+                <label for = "gender_input" id = "female_label">Female</label>
+                <input type = "radio" id = "female_input" name = "gender_input"/>
+            </div>
+            <div>
+                <label for = "country_input" id = "country_label">Country:</label>
+                <label for = "city_input" id = "city_label">City:</label><br/>
+                <input type = "text" id = "country_input" name = "country_input"/>
+                <input type = "text" id = "city_input" name = "city_input"/>
+            </div>
+            <div>
+                <label id = "skills_Label">Skills:</label>
+                <input type = "checkbox" id = "html_input" name = "html_input"/>
+                <label for = "html_input">HTML</label>
+
+                <input type = "checkbox" id = "css_input" name = "css_input"/>
+                <label for = "css_input">CSS</label>
+
+                <input type = "checkbox" id = "js_input" name = "js_input"/>
+                <label for = "js_input">JS</label>
+
+                <input type = "checkbox" id = "php_input" name = "php_input"/>
+                <label for = "php_input">PHP</label>
+
+                <input type = "checkbox" id = "c++_input" name = "c++_input"/>
+                <label for = "c++_input">C++</label>
+
+                <input type = "checkbox" id = "java_input" name = "java_input"/>
+                <label for = "java_input">JAVA</label>
+
+                <input type = "checkbox" id = "c#_input" name = "c#_input"/>
+                <label for = "c#_input">C#</label>
+            </div>
+            <div>
+                <input type = "submit" value = "Save" id = "save_button" name = "buttonInput"/>
+            </div>
+        </div>
+    </form>
+
+    <div id="container" style="display: none;"></div>
+
+    <script>
+        let form = document.forms[0];
+        form.addEventListener("submit", saveFunction);
+
+        let userFirstName = document.getElementById("firstname_input");
+        let userLastName = document.getElementById("lastname_input");
+
+        let userBirthday = document.getElementById("birthday_input");
+        let userMale = document.getElementById("male_input");
+        let userFemale = document.getElementById("female_input");
+
+        let userCountry = document.getElementById("country_input");
+        let userCity = document.getElementById("city_input");
+
+        let userHTML = document.getElementById("html_input");
+        let userCSS = document.getElementById("css_input");
+        let userJS = document.getElementById("js_input");
+        let userPHP = document.getElementById("php_input");
+        let userCPlus = document.getElementById("c++_input");
+        let userJava = document.getElementById("java_input");
+        let userCSh = document.getElementById("c#_input");
+
+        function saveFunction(event) {
+            event.preventDefault();
+
+            if (userMale.checked) {
+                userMale.value = "Male"
+            } else {
+                userMale.value = '';
+            }
+
+            if (userFemale.checked) {
+                userFemale.value = "Female"
+            } else {
+                userFemale.value = '';
+            }
+
+            if (userHTML.checked) {
+                userHTML.value = "HTML"
+            } else {
+                userHTML.value = '';
+            }
+
+            if (userCSS.checked) {
+                userCSS.value = "CSS"
+            } else {
+                userCSS.value = '';
+            }
+
+            if (userJS.checked) {
+                userJS.value = "JS"
+            } else {
+                userJS.value = '';
+            }
+
+            if (userPHP.checked) {
+                userPHP.value = "PHP"
+            } else {
+                userPHP.value = '';
+            }
+
+            if (userCPlus.checked) {
+                userCPlus.value = "C++"
+            } else {
+                userCPlus.value = '';
+            }
+
+            if (userJava.checked) {
+                userJava.value = "Java"
+            } else {
+                userJava.value = '';
+            }
+
+            if (userCSh.checked) {
+                userCSh.value = "C#"
+            } else {
+                userCSh.value = '';
+            }
+
+            let resultMassage = document.getElementById("container");
+            resultMassage.style.display = "block";
+            resultMassage.innerHTML = `
+            <table>
+                <tr>
+                    <td>Firstname</td>
+                    <td>${userFirstName.value}</td>
+                </tr>
+                <tr>
+                    <td>Lastname</td>
+                    <td>${userLastName.value}</td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td>${userBirthday.value}</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>${userMale.value}${userFemale.value}</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>${userCountry.value}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>${userCity.value}</td>
+                </tr>
+                <tr>
+                    <td>Skills</td>
+                    <td>${userHTML.value} ${userCSS.value} ${userJS.value} ${userPHP.value} ${userCPlus.value} ${userJava.value} ${userCSh.value}</td>
+                </tr>
+            </table>`;
+        }
+    </script>
+</body>
+</html>
