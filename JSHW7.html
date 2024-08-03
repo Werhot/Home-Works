@@ -33,10 +33,8 @@
 
         */
 
-        
-
         function News (header, text, tags, date, days) {
-
+            
             this.header = header;
             this.text = text;
             this.tags = tags;
@@ -55,8 +53,8 @@
             }
 
 
-            this.print = function(headerfontsize) {
-
+            print(headerfontsize)
+            {
                 let output = 
                 `<h1 style = " font-size: ${headerfontsize}px"> ${header} </h1>
                 <p> ${date} </p>
@@ -75,28 +73,24 @@
         let days = date.getDate();
 
         let firstNewsTags = ['#1tag', '#2tag', '#3tag'];
-        let firstNews =  new News('What is Lorem Ipsum?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio error veniam ipsum ex, iste quasi, modi vel nam, officiis minus ad magnam corrupti eos fuga possimus. Reprehenderit quasi ab maiores', 
+        let firstNews =  new News('What is Lorem Ipsum?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio error veniam ipsum ex, iste quasi, modi vel nam, officiis minus ad magnam corrupti eos fuga possimus. Reprehenderit quasi ab maiores',
         firstNewsTags, firstNewsDate, days);
 
+        // let secondNewsDate =  formatter.format(date);
+        // let secondNewsTags = ['#1tag', '#2tag', '#3tag'];
+        // let secondNews = new News('How we use Lorem Ipsum ?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed temporibus, quisquam odit maiores, dolore consectetur saepe at consequatur nobis modi itaque qui libero iure dignissimos aut enim in. Ab, dolorem!', 
+        // secondNewsTags, secondNewsDate, days);
+        
+        // let thirdNewsDate =  formatter.format(date);
+        // let thirdNewsTags = ['#1tag', '#2tag', '#3tag'];
+        // let thirdNews =  new News('How many Lorem Ipsum we have?', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur officiis nihil, qui dignissimos voluptate aspernatur minus magni voluptatem iure impedit eveniet officia est dicta obcaecati quaerat maxime autem sunt doloremque.', 
+        // thirdNewsTags, thirdNewsDate, days);
+
         firstNews.print(30);
-
-        let secondNewsDate =  formatter.format(date);
-        let secondNewsTags = ['#1tag', '#2tag', '#3tag'];
-        let secondNews =  new News('How we use Lorem Ipsum ?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed temporibus, quisquam odit maiores, dolore consectetur saepe at consequatur nobis modi itaque qui libero iure dignissimos aut enim in. Ab, dolorem!', 
-        secondNewsTags, secondNewsDate, days);
-        
         secondNews.print(30);
-
-        let thirdNewsDate =  formatter.format(date);
-        let thirdNewsTags = ['#1tag', '#2tag', '#3tag'];
-        let thirdNews =  new News('How many Lorem Ipsum we have?', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur officiis nihil, qui dignissimos voluptate aspernatur minus magni voluptatem iure impedit eveniet officia est dicta obcaecati quaerat maxime autem sunt doloremque.', 
-        thirdNewsTags, thirdNewsDate, days);
-        
         thirdNews.print(30);
-
     </script>
 </head>
 <body>
-    
 </body>
 </html>
