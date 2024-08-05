@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW11E5</title>
+    <style>
+        #main_div {
+            background-color: wheat;
+
+            width: 370px;
+            height: 30px;
+
+            text-align: center;
+
+            border: 1px solid;
+            border-radius: 5px;
+
+            padding: 2%;
+        }
+        #container {
+            display: none;
+
+            margin-top: 35px;
+            padding: 2%;
+            margin-left: -7%;
+
+            background-color: wheat;
+
+            width: 400px;
+            height: 200px;
+
+            text-align: left;
+
+            border: 1px solid;
+            border-radius: 5px;
+
+        }
+        #topicLabel {
+
+            margin-left: 5%;
+            margin-bottom: 20px;
+
+            display: inline-block;
+        }
+        #topicInput {
+            float: right;
+            width: 200px;
+
+            display: inline-block;
+        }
+        #nameSpan {
+            margin-left: 5%;
+            margin-bottom: 20px;
+
+            display: inline-block;
+
+        }
+        #presentSpan {
+            float: right;
+
+            margin-right: 100px;
+            margin-bottom: 20px;
+
+            display: inline-block;
+        }
+        .studentLabel {
+            margin-left: 20px;
+        }
+        #studentInput1, #studentInput2, #studentInput3 {
+            margin-left: 180px;
+        }
+        #saveButton {
+            width: 80%;
+
+            margin-left: 10%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <form action="" method="post">
+            <label for="groupInput">Group</label>
+            <select name="groupInput" id="groupInput">
+                <option value="option1">Group1</option>
+                <option value="option2">Group2</option>
+                <option value="option3">Group3</option>
+                <option value="option4">Group4</option>
+            </select>
+            <label for="lessonInput">Lesson</label>
+            <select name="lessonInput" id="lessonInput">
+                <option value="option1">1</option>
+                <option value="option2">2</option>
+                <option value="option3">3</option>
+                <option value="option4">4</option>
+                <option value="option5">5</option>
+                <option value="option6">6</option>
+            </select>
+            <input type="submit" value="select" name="selectButton" id="selectButton"/>
+        </form>
+        <div id="container"></div>
+    </div>
+
+    <script>
+        let groupInput = document.getElementById("groupInput");
+        let lessonInput = document.getElementById("lessonInput");
+
+        let groups = [];
+
+        let lessons = [];
+
+        let form = document.forms[0];
+        form.addEventListener("submit", selectGroupLesson);
+        
+
+        function selectGroupLesson(event) {
+            event.preventDefault();
+
+            container.style.display = "block";
+
+            let userText = document.createElement("div");
+            userText.innerHTML = `<label for="topicInput"  id="topicLabel">Topic</label><input type="text" name="topicInput" id="topicInput"/><br/>
+            <span id="nameSpan">Name:</span><span id="presentSpan">is present:</span><br/>
+
+            <label for="" class="studentLabel">Student1</label>
+            <input type="checkbox"  id="studentInput1"><br/>
+
+            <label for="" class="studentLabel">Student2</label>
+            <input type="checkbox"  id="studentInput2"><br/>
+
+            <label for="" class="studentLabel">Student3</label>
+            <input type="checkbox" id="studentInput3"><br/>
+            
+            <input type="button" value="save" name="saveButton" id="saveButton"/>`; 
+
+            
+
+            let userTextDiv = document.createElement("div");
+            userTextDiv.className = "user_text_div";
+            userTextDiv.appendChild(userText);
+
+            let studentInput1 = document.getElementById("studentInput1");
+            let studentInput2 = document.getElementById("studentInput2");
+            let studentInput3 = document.getElementById("studentInput3");
+            let topicInput = document.getElementById("topicInput");
+            
+            document.getElementById("container").appendChild(userTextDiv);
+
+            let saveButton = document.getElementById("saveButton");
+            saveButton.addEventListener("click", saveForm); 
+
+            if (studentInput1.checked) {
+                    studentInput1.value = "present";
+                } else {
+                    studentInput1.value = '';
+                }
+
+                if (studentInput2.checked) {
+                    studentInput2.value = "present";
+                } else {
+                    studentInput2.value = '';
+                }
+
+                if (studentInput3.checked) {
+                    studentInput3.value = "present";
+                } else {
+                    studentInput3.value = '';
+                }
+
+                console.log(studentInput1);
+                console.log(studentInput2);
+                console.log(studentInput3);
+                console.log(topicInput);
+
+            function saveForm(event) {
+                event.preventDefault();
+
+                userText.innerHTML = `<label for="topicInput" id="topicLabel">Topic</label><span id="topicInput">${topicInput.value}</span><br/>
+                <span id="nameSpan">Name:</span><span id="presentSpan">is present:</span><br/>
+
+                <label for="" class="studentLabel">Student1</label>
+                <span id="studentInput1"></span><br/>
+
+                <label for="" class="studentLabel">Student2</label>
+                <span id1="studentInput2"></span><br/>
+
+                <label for="" class="studentLabel">Student3</label>
+                <span id="studentInput3"></span><br/>
+                    
+                <input type="button" value="save" name="saveButton" id="saveButton"/>`;
+            }
+        }
+        
+    </script>
+</body>
+</html>
