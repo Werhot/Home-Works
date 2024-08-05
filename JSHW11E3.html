@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW11E3</title>
+    <style>
+        #main_div {
+            background-color: wheat;
+
+            width: fit-content;
+            height: fit-content;
+
+            text-align: center;
+        }
+        #text_input {
+            width: 400px;
+            height: 100px;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        #bold_input,#nderline_input,#talics_input,#left_input,#right_input,#justify_input  {
+            margin-top: 20px;
+
+        }
+        #show_button {
+            width: 400px;
+            margin-bottom: 20px;
+        }
+        #container {
+
+            display: none;
+
+            background-color: wheat;
+
+            margin-top: 20px;
+
+            width: 450px;
+            height: fit-content;
+
+        }
+        .user_text {
+            border: 1px solid black;
+            
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <form action="" method="post">
+            <input type="checkbox" id="bold_input" name="bold_input"/>
+            <label for="bold_input">Bold</label>
+
+            <input type="checkbox" id="underline_input" name="underline_input"/>
+            <label for="underline_input">Underline</label>
+
+            <input type="checkbox" id="italics_input" name="italics_input"/>
+            <label for="italics_input">Italics</label>
+
+            <input type="radio" id="left_input" name="align"/>
+            <label for="left_input">Left</label>
+
+            <input type="radio" id="right_input" name="align"/>
+            <label for="right_input">Right</label>
+
+            <input type="radio" id="justify_input" name="align"/>
+            <label for="justify_input">Justify</label>
+            <label for="align"></label><br/>
+
+            <textarea name="text_input" id="text_input"></textarea><br/>
+
+            <input type="submit" value="Show text" id="show_button" name="show_button"/>
+        </form>
+    </div>
+    <div id="container">
+        <h3>Result:</h3>
+    </div>
+
+    <script>
+        let boldInput = document.getElementById("bold_input");
+        let underlineInput = document.getElementById("underline_input");
+        let italicsInput = document.getElementById("italics_input");
+        let leftInput = document.getElementById("left_input");
+        let rightInput = document.getElementById("right_input");
+        let justifyInput = document.getElementById("justify_input");
+        let textInput = document.getElementById("text_input");
+        let container = document.getElementById("container");
+
+        let form = document.forms[0];
+        form.addEventListener("submit", showText);
+        
+        function showText (event) {
+            event.preventDefault();
+
+            container.style.display = "block";
+
+            if (boldInput.checked) {
+                textInput.style.fontWeight = "bold";
+            }
+
+            if (underlineInput.checked) {
+                textInput.style.textDecorationLine = "underline";
+            }
+
+            if (italicsInput.checked) {
+                textInput.style.fontFamily = "italic";
+            }
+
+            if (leftInput.checked) {
+                textInput.style.textAlign = "left";
+            }
+
+            if (rightInput.checked) {
+                textInput.style.textAlign = "right";
+            }
+
+            if (justifyInput.checked) {
+                textInput.style.textAlign = "justify";
+                textInput.style.textJustify = "inter-word";
+            }
+
+            let userText = document.createElement("div");
+            userText.style.fontWeight = textInput.style.fontWeight;
+            userText.style.textDecorationLine = textInput.style.textDecorationLine;
+            userText.style.fontFamily = textInput.style.fontFamily;
+            userText.style.textAlign = textInput.style.textAlign;
+            userText.style.textJustify = textInput.style.textJustify;
+            userText.innerHTML = textInput.value;
+            userText.className =  "user_text";
+
+            let userTextDiv = document.createElement("div");
+            userTextDiv.className = "user_text_div";
+            userTextDiv.appendChild(userText);
+            
+            document.getElementById("container").appendChild(userTextDiv);
+        }
+    </script>
+</body>
+</html>

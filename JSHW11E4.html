@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW11E4</title>
+    <style>
+        #main_div {
+            background-color: wheat;
+
+            height: 600px;
+            width: 1200px;
+            display: inline-table;
+        }
+
+
+
+        #unfoDiv {
+            border: 1px solid;
+
+            width: 30%;
+            height: 500px;
+
+            float: right;
+
+            margin-top: 2%;
+            margin-bottom: 3%;
+            margin-right: 8%;
+
+            text-align: left;
+
+        }
+        #unfoDiv input, textarea {
+            display: inline-table;
+            margin-top: 5%;
+
+        }
+        #unfoDiv textarea {
+            
+        }
+        #unfoDiv label {
+            display: inline-table;
+            margin-left: 5%;
+            margin-top: 5%;
+        }
+        #buyButton {
+            width: 80%;
+            margin-left: 10%;
+        }
+
+
+
+        #selectDiv {
+            width: 60%;
+
+            display: inline-block;
+        }
+        #selectDiv div {
+            border: 1px solid;
+
+            display: inline-table;
+
+            width: 20%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            margin-left: 2%;
+
+            height: 500px;
+
+            text-align: center;
+            
+        }
+        #selectDiv input {
+            border: 1px solid;
+
+            display: inline-block;
+            clear: both;
+
+            width: 80%;
+
+        }
+        #selectDiv p {
+            color: grey;
+            margin-left: 5%;
+            text-align: left;
+        }
+        #selectDiv text {
+            font-weight: bolder;
+            float: right;
+            margin-right: 10px;
+        }
+        #selectButton1:hover {
+            background-color: green;
+            color: white;
+        }
+        #selectButton2:hover {
+            background-color: green;
+            color: white;
+        }
+        #selectButton3:hover {
+            background-color: green;
+            color: white;
+        }
+        #container {
+            display: none;
+
+            margin-top: 5%;
+
+            background-color: wheat;
+
+            width: fit-content;
+            height: fit-content;
+
+            padding: 10px;
+        }
+        .user_text_div {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <form action="" method="post">
+            <div id="selectDiv">
+                <div id="book1Div">
+                    <img src="B1.png" alt="!!!" style="width: 200px; height: 300px;"/><br/>
+                    <span>
+                        (A)Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                        Unde quidem harum blanditiis laborum assumenda incidunt 
+                        quasi soluta
+                    </span>
+                    <p>tempora amet</p>
+                    <text>22$</text><br/>
+                    <input type="button" value="select" name="selectButton1" id="selectButton1">
+                </div>
+                
+                <div id="book2Div">
+                    <img src="B2.png" alt="!!!" style="width: 200px; height: 300px;"/><br/>
+                        (B)Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                        Maiores minima nisi et aliquam nam cupiditate suscipit
+                        amet consectetur
+                    <p>atque ipsam</p>
+                    <text>16$</text><br/>
+                    <input type="button" value="select" name="selectButton2" id="selectButton2">
+                </div>
+                
+                <div id="book3Div">
+                    <img src="B3.png" alt="!!!" style="width: 200px; height: 300px;"/><br/>
+                        (C)Lorem ipsum, dolor sit amet consectetur adipisicing elit
+                        Deserunt necessitatibus nobis quidem tenetur consequuntur
+                        et aliquam nam 
+                    <p>porro mollitia</p>
+                    <text>20$</text><br/>
+                    <input type="button" value="select" name="selectButton3" id="selectButton3">
+                </div>
+            </div>
+            <div id="unfoDiv">
+                <label for="bookInput">Book</label>
+                <input type="text" name="bookInput" id="bookInput" style="margin-left: 100px;"/>
+
+                <label for="quantityInput">Quantity</label>
+                <input type="number" name="quantityInput" id="quantityInput" style="margin-left: 80px;"/>
+
+                <label for="nameInput">Name</label>
+                <input type="text" name="nameInput" id="nameInput" style="margin-left: 98px;"/>
+
+                <label for="adrressInput">Delivery address</label> 
+                <textarea type = "address" name="adrressInput" id="adrressInput" style="margin-left: 28px; padding-right: 25px; padding-bottom: 80px;"></textarea>
+
+                <label for="dateInput">Delivery date</label>
+                <input type="date" name="dateInput" id="dateInput" style="margin-left: 48.5px;"/><br/>
+                
+                <label for="commentsInput">Comments</label>
+                <textarea name="commentsInput" id="commentsInput" style="margin-left: 65px; padding-right: 25px; padding-bottom: 80px;"></textarea><br/>
+
+                <input type="submit" value="Buy" name="buyButton" id="buyButton">
+            </div>
+        </form>
+        
+    </div>
+    <div id="container">
+        <h3>Result:</h3>
+    </div>
+
+    <script>
+        let bookInput = document.getElementById("bookInput");
+        let quantityInput = document.getElementById("quantityInput");
+        let nameInput = document.getElementById("nameInput");
+        let adrressInput = document.getElementById("adrressInput");
+        let dateInput = document.getElementById("dateInput");
+        let commentsInput = document.getElementById("commentsInput");
+
+        let form = document.forms[0];
+        form.addEventListener("submit", submitBuy);
+
+        let selectButton1 = document.getElementById("selectButton1");
+        let selectButton2 = document.getElementById("selectButton2");
+        let selectButton3 = document.getElementById("selectButton3");
+
+        selectButton1.addEventListener("click", selectBook1);
+        selectButton2.addEventListener("click", selectBook2);
+        selectButton3.addEventListener("click", selectBook3);
+
+        function selectBook1 (event) {
+            bookInput.value += "(A)Lorem ipsum, dolor sit amet consectetur adipisicing elit Unde quidem harum blanditiis laborum assumenda incidunt quasi soluta";
+            selectButton1.style.backgroundColor = "rgb(134, 121, 95)";
+        }
+
+        function selectBook2 (event) {
+            bookInput.value += "(B)Lorem, ipsum dolor sit amet consectetur adipisicing elit Maiores minima nisi et aliquam nam cupiditate suscipitamet consectetur";
+            selectButton2.style.backgroundColor = "rgb(134, 121, 95)";
+        }
+
+        function selectBook3 (event) {
+            bookInput.value += "(C)Lorem ipsum, dolor sit amet consectetur adipisicing elit Deserunt necessitatibus nobis quidem tenetur consequ unturet aliquam nam ";
+            selectButton3.style.backgroundColor = "rgb(134, 121, 95)";
+        }
+
+        function submitBuy (event) {
+            event.preventDefault();
+
+            container.style.display = "block";
+
+            let userText = document.createElement("div");
+            userText.innerHTML = `${nameInput.value}, thanks for the order!
+            ${quantityInput.value} book(s) "${bookInput.value}" will be delivered on ${dateInput.value} to ${adrressInput.value}.
+            Your comments: ${commentsInput.value}`;
+            userText.className =  "user_text";
+
+            let userTextDiv = document.createElement("div");
+            userTextDiv.className = "user_text_div";
+            userTextDiv.appendChild(userText);
+            
+            document.getElementById("container").appendChild(userTextDiv);
+        }
+    </script>
+</body>
+</html>
