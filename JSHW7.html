@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSHW7</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="tag-input" placeholder="Enter the tag">
+        <button id="search-button">Search</button>
+    </div>
+    <div id="news-container"></div>
+    <div id="news-count"></div>
+    <div id="search-results"></div>
     <script>
-        /*
+        /* 1
 
         function PrintMachineFunction (fontsize, color, fontfamily) {
              this.fontsize = fontsize;
@@ -31,8 +40,9 @@
         document.write( `${printMachine1.fontsize}, ${printMachine1.color}, ${printMachine1.fontfamily} <br/>` );
         document.write( `${printMachine2.fontsize}, ${printMachine2.color}, ${printMachine2.fontfamily}` ); 
 
-        */
+        */ 1
 
+        /* 2
         function News (header, text, tags, date, days) {
             
             this.header = header;
@@ -76,21 +86,142 @@
         let firstNews =  new News('What is Lorem Ipsum?', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio error veniam ipsum ex, iste quasi, modi vel nam, officiis minus ad magnam corrupti eos fuga possimus. Reprehenderit quasi ab maiores',
         firstNewsTags, firstNewsDate, days);
 
-        // let secondNewsDate =  formatter.format(date);
-        // let secondNewsTags = ['#1tag', '#2tag', '#3tag'];
-        // let secondNews = new News('How we use Lorem Ipsum ?', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed temporibus, quisquam odit maiores, dolore consectetur saepe at consequatur nobis modi itaque qui libero iure dignissimos aut enim in. Ab, dolorem!', 
-        // secondNewsTags, secondNewsDate, days);
-        
-        // let thirdNewsDate =  formatter.format(date);
-        // let thirdNewsTags = ['#1tag', '#2tag', '#3tag'];
-        // let thirdNews =  new News('How many Lorem Ipsum we have?', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur officiis nihil, qui dignissimos voluptate aspernatur minus magni voluptatem iure impedit eveniet officia est dicta obcaecati quaerat maxime autem sunt doloremque.', 
-        // thirdNewsTags, thirdNewsDate, days);
-
         firstNews.print(30);
-        secondNews.print(30);
-        thirdNews.print(30);
+        2 */ 
+
+        class News {
+            constructor() {
+                this.newsList = [];
+            }
+
+            addNews(newsItem) {
+                this.newsList.push(newsItem);
+            }
+
+            get newsCount() {
+                return this.newsList.length;
+            }
+
+            searchNewsByTag(tag) {
+                return this.newsList.filter(news => news.tags.includes(tag));
+            }
+
+            displayAllNews(containerId) {
+                const container = document.getElementById(containerId);
+                container.innerHTML = "";
+                const sortedNews = this.newsList.slice().sort((a, b) => b.publishDate - a.publishDate);
+                sortedNews.forEach(news => {
+                    container.appendChild(this.createNewsElement(news));
+                });
+            }
+
+            createNewsElement(news) {
+                const newsDiv = document.createElement("div");
+                newsDiv.classList.add("news-item");
+                newsDiv.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <p>${news.text}</p>
+                    <p><b>Tags:</b> ${news.tags.join(", ")}</p>
+                    <p><i>${news.getDisplayDate()}</i></p>`;
+                return newsDiv;
+            }
+
+            printNews(newsItems, containerId) {
+                const container = document.getElementById(containerId);
+                newsItems.forEach(news => {
+                    container.appendChild(this.createNewsElement(news));
+                });
+            }
+        }
+
+        class NewsItem {
+            constructor(title, text, tags, publishDate) {
+                this.title = title;
+                this.text = text;
+                this.tags = tags;
+                this.publishDate = new Date(this.parseEuropeanDate(publishDate));
+            }
+
+            parseEuropeanDate(dateStr) {
+                const [day, month, year] = dateStr.split(".");
+                return `${year}-${month}-${day}`;
+            }
+
+            getFormattedDate() {
+                const day = String(this.publishDate.getDate()).padStart(2, "0");
+                const month = String(this.publishDate.getMonth() + 1).padStart(2, "0");
+                const year = this.publishDate.getFullYear();
+                return `${day}.${month}.${year}`;
+            }
+
+            getDaysAgo() {
+                const today = new Date();
+                const differenceTime = today - this.publishDate;
+                const differenceDays = Math.floor(differenceTime / (1000 * 60 * 60 * 24));
+                return differenceDays;
+            }
+
+            getDisplayDate() {
+                const daysAgo = this.getDaysAgo();
+                if (daysAgo === 0) {
+                    return "Today";
+                } else if (daysAgo < 7) {
+                    return `${daysAgo} day(s) ago`;
+                } else {
+                    return this.getFormattedDate();
+                }
+            }
+        }
+
+        window.onload = function() {
+            const newsCollection = new News();
+
+            newsCollection.addNews(new NewsItem(
+                "What is Lorem ipsum dolor?",
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, veniam! Adipisci iste non et ullam sunt necessitatibus, aspernatur amet quasi consequatur praesentium dicta quibusdam, veritatis nobis, nemo distinctio tempora mollitia.",
+                ["lorem", "ipsum", "dolor"],
+                "11.07.2024"
+            ));
+
+            newsCollection.addNews(new NewsItem(
+                "What is consectetur adipisicing dolor?",
+                "Non ab id, perferendis molestiae, magnam veritatis eum atque minima quas repellat hic saepe, ratione distinctio cupiditate. Quo alias exercitationem consequuntur omnis.",
+                ["consectetur", "adipisicing", "dolor"],
+                "07.06.2024"
+            ));
+
+            newsCollection.addNews(new NewsItem(
+                "What is assumenda illum officiis?",
+                "Error sint et, esse assumenda illum officiis. Sit velit doloribus enim ut numquam eaque dolorem, quasi minus repellendus atque exercitationem veniam fuga.",
+                ["assumenda", "illum", "officiis"],
+                "09.07.2024"
+            ));
+
+            newsCollection.displayAllNews("news-container");
+
+            const newsCountDiv = document.getElementById("news-count");
+            newsCountDiv.innerHTML = `<div>Number of news: ${newsCollection.newsCount}</div>`;
+
+            document.getElementById("search-button").addEventListener("click", () => {
+                const tag = document.getElementById("tag-input").value.trim();
+                const searchedNews = newsCollection.searchNewsByTag(tag);
+                const searchResultsContainer = document.getElementById("search-results");
+
+                searchResultsContainer.innerHTML = "";
+                
+                if (searchedNews.length > 0) {
+                    const header = document.createElement("h2");
+                    header.textContent = `News with tag "${tag}":`;
+                    searchResultsContainer.appendChild(header);
+
+                    newsCollection.printNews(searchedNews, "search-results");
+                } else {
+                    const noResultsMessage = document.createElement("h2");
+                    noResultsMessage.textContent = `No news found with tag "${tag}"`;
+                    searchResultsContainer.appendChild(noResultsMessage);
+                }
+            });
+        }
     </script>
-</head>
-<body>
 </body>
 </html>
