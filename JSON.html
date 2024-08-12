@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <style>
+        #main_div {
+            text-align: center;
+            background-color: wheat;
+            height: 2000px;
+            width: 1000px;
+            overflow: scroll;
+        }
+        #main_div span {
+            border: 1px solid;
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+        }
+        #userInfoDiv {
+            display: inline;
+        }
+        .showPostsButton {
+            display: block;
+            width: 90%;
+            margin-left: 5%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_div">
+        <h1>All users:</h1>
+        <div id="usersDiv"></div>
+        <h4>User Info:</h4>
+        <div id="userInfoDiv"></div>
+    </div>
+
+    <script>
+        let user1 = {
+            id: 1,
+            name: "Username",
+            age: 24
+        }
+        
+        let jsonStirng = JSON.stringify(user1);
+        let  firstResponse;
+
+        let firstRequest = new XMLHttpRequest();
+        firstRequest.open("GET", "https://jsonplaceholder.typicode.com/users");
+        firstRequest.send();
+        
+        firstRequest.onload = function(){
+            firstResponse = firstRequest.response;
+            let users = JSON.parse(firstRequest.response);
+            let usersDiv = document.getElementById("usersDiv");
+            for (let i = 0; i < users.length; i++) {
+                const currentUser = users[i];
+
+                let userDiv = document.createElement("span");
+                userDiv.innerText = currentUser.name;
+
+                userDiv.onclick = function() {
+                    event.preventDefault();
+                    document.getElementById("userInfoDiv").innerHTML = `
+                    <table>
+                        <tr>
+                            <td>Name:</td>
+                            <td>${currentUser.name}</td>
+                        </tr>
+                        <tr>
+                            <td>Username:</td>
+                            <td>${currentUser.username}</td>
+                        </tr>
+                        <tr>
+                            <td>Address:</td>
+                            <td>${currentUser.address.zipcode} | ${currentUser.address.city} | ${currentUser.address.street} | ${currentUser.address.suite}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>${currentUser.email}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>${currentUser.phone}</td>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td>${currentUser.website}</td>
+                        </tr>
+                    </table>`;
+
+                    let showPostsButton = document.createElement("button");
+                    showPostsButton.className = "showPostsButton";
+                    showPostsButton.innerText = "ShowPosts";
+                    showPostsButton.onclick = function () {
+                        let postsRequest = new XMLHttpRequest();
+                        postsRequest.open("GET", "https://jsonplaceholder.typicode.com/posts");
+                        postsRequest.send();
+
+                        postsRequest.onload = function() {
+                            let posts = JSON.parse(postsRequest.response);
+                            let postDiv = document.createElement("div");
+                            postDiv.className = "postDiv";
+                            for (let i = 0; i < posts.length; i++) {
+                                let userPostSpan = document.createElement("span");
+                                userPostSpan.innerHTML = 
+                                `<h5>${posts[i].title}</h5> <p>${posts[i].body}</p>`;
+                                postDiv.appendChild(userPostSpan);
+                                
+                            }
+                            
+                            document.getElementById("userInfoDiv").appendChild(postDiv);
+                        }
+                    }
+                    userInfoDiv.appendChild(showPostsButton);
+                }
+                usersDiv.appendChild(userDiv);
+
+            }
+        }
+    </script>
+</body>
+</html>
