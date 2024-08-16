@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW12E2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #mainDiv {
+            background-color: bisque;
+        }
+        #menuDiv {
+            background-color: cadetblue;
+            width: 100px;
+            height: 400px;
+            overflow: hidden;
+        }
+        p {
+            margin-left: 40px;
+            display: inline-block;
+        }
+        #menuSpan {
+            margin-left: 30px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+            display: inline-block;
+        }
+        .textP {
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#menuSpan").click(function(e) {
+                $(".textP").show();
+                $("#menuDiv").width(250);
+            });  
+        });
+    </script>
+</head>
+<body>
+    <div id="mainDiv">
+        <div id="menuDiv">
+            <span id="menuSpan">Menu</span><br/>
+            <p>✏️</p><p class="textP">EDIT</p><br/>
+            <p>🧡</p><p class="textP">FAVORITIES</p><br/>
+            <p>🕓</p><p class="textP">HISTORY</p><br/>
+            <p>🛡️</p><p class="textP">SECURITY</p><br/>
+            <p>🛠</p><p class="textP">SETTINGS</p><br/>
+        </div>
+    </div>
+</body>
+</html>

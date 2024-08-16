@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW12E1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #imageDiv {
+            width: 800px;
+            height: 800px;
+            background-image: url("phpTCg.png");
+            border: 1px solid;
+            position: relative;
+        }
+        #imageDiv img {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("div").mouseenter(function(e) {
+                $("img").show();
+            })  
+            $("div").mousemove(function(e) {
+              $("img").css({
+                left: e.pageX,
+                top: e.pageY
+                })  
+            });
+            $("div").mouseleave(function(e) {
+                $("img").hide();
+            });  
+            
+        
+            
+        });
+    </script>
+</head>
+<body>
+    <div id="imageDiv">
+        <img src="cat.png" alt="!!!" id="catImg"/>
+    </div>
+</body>
+</html>

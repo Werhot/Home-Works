@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW12E3</title>
+    <style>
+        /* .colored {
+            background-color: lightskyblue;
+        } */
+        .lightskyblue {
+            background-color: lightskyblue;
+        }
+        .wheat {
+            background-color: wheat;
+        }
+        .coral {
+            background-color: coral;
+        }
+        .darkseagreen {
+            background-color: darkseagreen;
+        }
+
+        div div, button {
+            border: 1px solid #5f5f5f;
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+        }
+        .shadow {
+            box-shadow: 0px 0px 5px 5px #5f5f5f;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // $(document).ready(function(){
+        //     $("#button1").click(function(event) {
+        //         let divText = $("div").last().text();
+        //         $("div").html("<p>Paragraph</p>");
+        //         $("div").eq(1).text("eq(1) div");
+        //         $("div").last().text(`${divText} last div`);
+        //         $("span").text("<p>Paragraph</p>");
+        //         $("input").val("value1");
+        //         $("div").first().append("<span>Appended span</span>");
+        //         $("div").first().prepend("<span>prepended span</span>");
+        //         $("div").first().after("<span>After span</span>");
+        //     });
+
+        //     $("#removeButton").click(function() {
+        //         $("#container").remove();
+        //     })
+
+        //     $("#emptyButton").click(function() {
+        //         $("div").first().empty();
+        //     })
+
+        //     $("#colorButton").click(function() {
+        //         $("div").toggleClass("colored").css("font-size", "20px");
+        //     })
+        // }); 
+
+        $(function () {
+            $("button.coral").click(function() {
+                $(this).addClass("shadow");
+                $("div.coral").addClass("shadow");
+
+                $("button.darkseagreen").removeClass("shadow");
+                $("button.wheat").removeClass("shadow");
+                $("button.lightskyblue").removeClass("shadow");
+
+                $("div.darkseagreen").removeClass("shadow");
+                $("div.wheat").removeClass("shadow");
+                $("div.lightskyblue").removeClass("shadow");
+            });
+
+            $("button.wheat").click(function() {
+                $(this).addClass("shadow");
+                $("div.wheat").addClass("shadow");
+
+                $("button.darkseagreen").removeClass("shadow");
+                $("button.coral").removeClass("shadow");
+                $("button.lightskyblue").removeClass("shadow");
+
+                $("div.darkseagreen").removeClass("shadow");
+                $("div.coral").removeClass("shadow");
+                $("div.lightskyblue").removeClass("shadow");
+            });
+
+            $("button.darkseagreen").click(function() {
+                $(this).addClass("shadow");
+                $("div.darkseagreen").addClass("shadow");
+
+                $("button.wheat").removeClass("shadow");
+                $("button.coral").removeClass("shadow");
+                $("button.lightskyblue").removeClass("shadow");
+
+                $("div.wheat").removeClass("shadow");
+                $("div.coral").removeClass("shadow");
+                $("div.lightskyblue").removeClass("shadow");
+            });
+
+            $("button.lightskyblue").click(function() {
+                $(this).addClass("shadow");
+                $("div.lightskyblue").addClass("shadow");
+
+                $("button.wheat").removeClass("shadow");
+                $("button.coral").removeClass("shadow");
+                $("button.darkseagreen").removeClass("shadow");
+
+                $("div.wheat").removeClass("shadow");
+                $("div.coral").removeClass("shadow");
+                $("div.darkseagreen").removeClass("shadow");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- <div id="container"></div>
+    <div></div>
+    <div></div>
+    <span></span>
+    <input type="text"/>
+    <button type="button" id="button1">Submit</button>
+    <button type="button" id="removeButton">Удалить</button>
+    <button type="button" id="emptyButton">Опустошить</button>
+    <button type="button" id="colorButton">Change color</button> -->
+
+    <div>
+        <h2>Select Color</h2>
+        <button type="button" class="coral">coral</button>
+        <button type="button" class="darkseagreen">darkseagreen</button>
+        <button type="button" class="wheat">wheat</button>
+        <button type="button" class="lightskyblue">lightskyblue</button>
+    </div>
+    <hr/>
+    <div>
+        <h2>Fruits:</h2>
+        <div class="darkseagreen">pear</div>
+        <div class="coral">peach</div>
+        <div class="wheat">pineapple</div>
+        <div class="lightskyblue">plum</div><br/>
+        <div class="wheat">lemon</div>
+        <div class="coral">apple</div>
+        <div class="lightskyblue">grappe</div>
+        <div class="darkseagreen">avocado</div><br/>
+        <div class="wheat">banana</div>
+        <div class="darkseagreen">lime</div>
+        <div class="lightskyblue">eggpalnt</div>
+        <div class="coral">garnet</div><br/>
+        
+    </div>
+</body>
+</html>

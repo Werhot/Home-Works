@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSHW12E4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #mainDiv {
+            background-color: bisque;
+            width: 300px;
+            height: 150px;
+            border: 1px solid;
+        }
+        #headerSpan {
+            display: inline-block;
+            margin-left: 40px;
+            font-weight: bolder;
+        }
+
+
+
+        .ratingStar {
+            position: relative;
+            display: inline-block;
+            margin-left: -180px;
+            left: 120px;
+            top: 30px;
+            width: 0px;
+            height: 0px;
+            color: black;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid black;
+            transform: rotate(35deg);
+            scale: 0.1;
+        }
+        .ratingStar::before {
+            content: '';
+            position: absolute;
+            top: -45px;
+            left: -65px;
+            display: inline-block;
+            height: 0;
+            width: 0;
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-bottom: 80px solid black;
+            transform: rotate(-35deg);
+        }
+        .ratingStar::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: -105px;
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            color: black;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 70px solid black;
+            transform: rotate(-70deg);
+        }
+
+
+
+        .active {
+            border-bottom: 70px solid gold;
+        }
+        .active::after {
+            border-bottom: 70px solid gold;
+        }
+        .active::before {
+            border-bottom: 80px solid gold;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("#1star").click(function() {
+                $("#1star").addClass("active");
+
+                $("#2star").removeClass("active");
+                $("#3star").removeClass("active");
+                $("#4star").removeClass("active");
+                $("#5star").removeClass("active");
+            });
+
+            $("#2star").click(function() {
+                $("#1star").addClass("active");
+                $("#2star").addClass("active");
+
+                $("#3star").removeClass("active");
+                $("#4star").removeClass("active");
+                $("#5star").removeClass("active");
+            });
+
+            $("#3star").click(function() {
+                $("#1star").addClass("active");
+                $("#2star").addClass("active");
+                $("#3star").addClass("active");
+
+                $("#4star").removeClass("active");
+                $("#5star").removeClass("active");
+            });
+
+            $("#4star").click(function() {
+                $("#1star").addClass("active");
+                $("#2star").addClass("active");
+                $("#3star").addClass("active");
+                $("#4star").addClass("active");
+
+                $("#5star").removeClass("active");
+            });
+
+            $("#5star").click(function() {
+                $("#1star").addClass("active");
+                $("#2star").addClass("active");
+                $("#3star").addClass("active");
+                $("#4star").addClass("active");
+                $("#5star").addClass("active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="mainDiv">
+        <span id="headerSpan">Star Rating:</span>
+        <span id="1star" class="ratingStar"></span>
+        <span id="2star" class="ratingStar"></span>
+        <span id="3star" class="ratingStar"></span>
+        <span id="4star" class="ratingStar"></span>
+        <span id="5star" class="ratingStar"></span>
+    </div>
+</body>
+</html>
